@@ -1,24 +1,8 @@
-import * as BlueBird from 'bluebird';
 import {expect} from 'chai';
 import * as puppeteer from 'puppeteer';
 import {Browser, Page} from 'puppeteer';
-import {Options} from '../src/types/Options';
-
-BlueBird.config( {
-    longStackTraces: true,
-});
-global.Promise = BlueBird;
-const options: Options = {
-    args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-    ],
-    dumpio: false,
-    headless: false,
-    ignoreHTTPSErrors: false,
-    slowMo: 25,
-    timeout: 30000,
-};
+import {Defaults} from '../src/Defaults';
+import './support/Helper';
 
 describe('Puppeteer', function() {
 
@@ -27,7 +11,7 @@ describe('Puppeteer', function() {
 
     beforeEach(async function() {
         this.enableTimeouts(false);
-        browser = await puppeteer.launch(options);
+        browser = await puppeteer.launch(Defaults.browserOptions);
         const pages = await browser.pages();
         page = pages[0];
     });
