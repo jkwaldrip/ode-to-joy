@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "inlineSources": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "target": "es2016"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "bin/*",
+    "./src/**/*",
+    "./test/**/*",
+    "./*.ts"
+  ]
+}
