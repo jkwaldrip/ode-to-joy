@@ -24,9 +24,13 @@ export class Play {
         this.page = page;
     }
 
-    public async note(which: string, length: number = 3000) {
+    public async note(which: string, duration: number = 200) {
         which = which.toUpperCase();
         await this.page.click( this.notes[which] );
-        await Play.sleep(length);
+        await Play.sleep(duration);
+    }
+    
+    public async rest(duration: number = 200) {
+        await Play.sleep(duration);
     }
 }

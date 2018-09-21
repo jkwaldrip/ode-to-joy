@@ -41,8 +41,11 @@ describe('Piano', function() {
     it('plays the first line of Ode to Joy', async function() {
         this.enableTimeouts(false);
         await page.goto('https://virtualpiano.net',
-            {waitUntil: 'domcontentloaded'});
-        await Play.sleep(8000);
+            {
+                waitUntil: 'networkidle2',
+                timeout: Defaults.browserOptions.timeout,
+            });
+        await play.rest(800);
         await play.note('E4', 200);
         await play.note('E4', 200);
         await play.note('F4', 200);
@@ -58,6 +61,6 @@ describe('Piano', function() {
         await play.note('E4', 300);
         await play.note('D4', 100);
         await play.note('D4', 400);
-        await Play.sleep(1000);
+        await play.rest(800);
     });
 });

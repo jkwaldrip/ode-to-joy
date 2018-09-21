@@ -11,7 +11,7 @@ export class Defaults {
         headless: false,
         ignoreHTTPSErrors: false,
         slowMo: 25,
-        timeout: 30000,
+        timeout: 45000,
     };
 
 }
