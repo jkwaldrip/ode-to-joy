@@ -9,6 +9,13 @@ export class Play {
     }
 
     public notes = {
+        C3: '#a56d',
+        D3: '#a57d',
+        E3: '#a48d',
+        F3: '#a81d',
+        G3: '#a87d',
+        A3: '#a69d',
+        B3: '#a82d',
         C4: '#a84d',
         D4: '#a89d',
         E4: '#a85d',
