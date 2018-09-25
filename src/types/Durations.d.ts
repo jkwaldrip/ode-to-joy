@@ -5,3 +5,10 @@ export interface Durations {
     half: number;
     whole: number;
 }
+
+export type Duration =
+    | 'eighth'
+    | 'quarter'
+    | 'dottedQuarter'
+    | 'half'
+    | 'whole';

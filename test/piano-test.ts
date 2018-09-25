@@ -34,8 +34,8 @@ describe('Piano', function() {
     it('opens and plays a middle C', async function() {
         this.enableTimeouts(false);
         await page.goto('https://virtualpiano.net',
-            {waitUntil: 'domcontentloaded'});
-        await play.note('C4');
+            {waitUntil: 'networkidle2'});
+        await play.note('C4', 'whole');
     });
 
     it('plays the first line of Ode to Joy', async function() {
@@ -45,22 +45,22 @@ describe('Piano', function() {
                 waitUntil: 'networkidle2',
                 timeout: Defaults.browserOptions.timeout,
             });
-        await play.rest(800);
-        await play.note('E4', 200);
-        await play.note('E4', 200);
-        await play.note('F4', 200);
-        await play.note('G4', 200);
-        await play.note('G4', 200);
-        await play.note('F4', 200);
-        await play.note('E4', 200);
-        await play.note('D4', 200);
-        await play.note('C4', 200);
-        await play.note('C4', 200);
-        await play.note('D4', 200);
-        await play.note('E4', 200);
-        await play.note('E4', 300);
-        await play.note('D4', 100);
-        await play.note('D4', 400);
-        await play.rest(800);
+        await play.rest('whole');
+        await play.note('E4', 'quarter');
+        await play.note('E4', 'quarter');
+        await play.note('F4', 'quarter');
+        await play.note('G4', 'quarter');
+        await play.note('G4', 'quarter');
+        await play.note('F4', 'quarter');
+        await play.note('E4', 'quarter');
+        await play.note('D4', 'quarter');
+        await play.note('C4', 'quarter');
+        await play.note('C4', 'quarter');
+        await play.note('D4', 'quarter');
+        await play.note('E4', 'quarter');
+        await play.note('E4', 'dottedQuarter');
+        await play.note('D4', 'eighth');
+        await play.note('D4', 'half');
+        await play.rest('whole');
     });
 });

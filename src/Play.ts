@@ -1,6 +1,6 @@
 import {Page} from 'puppeteer';
-import {Durations} from './types/Durations';
-import {Notes} from './types/Notes';
+import {Duration, Durations} from './types/Durations';
+import {Note, Notes} from './types/Notes';
 
 export class Play {
     public static sleep(timeInMilliseconds: number): Promise<{}> {
@@ -42,13 +42,12 @@ export class Play {
         this.page = page;
     }
 
-    public async note(which: string, duration: 'eighth' | 'quarter' | 'dottedQuarter' | 'half' | 'whole') {
-        which = which.toUpperCase();
+    public async note(which: Note, duration: Duration) {
         await this.page.click(this.notes[which]);
         await Play.sleep(this.durations[duration]);
     }
 
-    public async rest(duration: string) {
+    public async rest(duration: Duration) {
         await Play.sleep(this.durations[duration]);
     }
 }
