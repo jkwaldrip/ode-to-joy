@@ -1,4 +1,6 @@
 import {Page} from 'puppeteer';
+import {Durations} from './types/Durations';
+import {Notes} from './types/Notes';
 
 export class Play {
     public static sleep(timeInMilliseconds: number): Promise<{}> {
@@ -8,7 +10,15 @@ export class Play {
         ));
     }
 
-    public notes = {
+    public durations: Durations = {
+        eighth: 100,
+        quarter: 200,
+        dottedQuarter: 300,
+        half: 400,
+        whole: 800,
+    };
+
+    public notes: Notes = {
         C3: '#a56d',
         D3: '#a57d',
         E3: '#a48d',
@@ -25,19 +35,20 @@ export class Play {
         B4: '#a65d',
         C5: '#a83d',
     };
+
     private page: Page;
 
     constructor(page) {
         this.page = page;
     }
 
-    public async note(which: string, duration: number = 200) {
+    public async note(which: string, duration: 'eighth' | 'quarter' | 'dottedQuarter' | 'half' | 'whole') {
         which = which.toUpperCase();
-        await this.page.click( this.notes[which] );
-        await Play.sleep(duration);
+        await this.page.click(this.notes[which]);
+        await Play.sleep(this.durations[duration]);
     }
-    
-    public async rest(duration: number = 200) {
-        await Play.sleep(duration);
+
+    public async rest(duration: string) {
+        await Play.sleep(this.durations[duration]);
     }
 }
