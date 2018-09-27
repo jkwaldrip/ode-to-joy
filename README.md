@@ -4,7 +4,7 @@ Playing Beethoven's "Ode to Joy" on VirtualPiano.net in TypeScript with Puppetee
 ---
 
 This is just a small demo project.  It runs in Puppeteer, which drives Google Chromium
-in either headless or GUI mode.  Using Puppeteer, we interact with VirtualPiano.net
+in GUI mode.  Using Puppeteer, we interact with VirtualPiano.net
 to play Beethoven's "Ode to Joy."
 
 ## Durations and Rests
